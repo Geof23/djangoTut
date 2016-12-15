@@ -11,10 +11,12 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
 import os
+#from registration_defaults.settings import *
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+REGISTRATION_OPEN = True
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
@@ -25,13 +27,15 @@ SECRET_KEY = 'cw2x-qsq+bdja)l)6u9$z+d+k62nhzj^7e5%lhsyrd-pjg!_i0'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['bihexal.cs.utah.edu']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'base.apps.BaseConfig',
     'polls.apps.PollsConfig',
+    'registration_defaults',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -122,3 +126,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
+
+#DEFAULT_FROM_EMAIL = True ?? don't know about this
+EMAIL_HOST='smtp.gmail.com'
+EMAIL_PORT=587
+EMAIL_HOST_USER='si22017.pimeeting@gmail.com'
+EMAIL_HOST_PASSWORD='iLs_7$99'
+EMAIL_USE_TLS=True
